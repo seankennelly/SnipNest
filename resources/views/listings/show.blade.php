@@ -31,7 +31,7 @@
           {{$listing->description}}
           <a
               href="{{$listing->email}}"
-              class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
+              class="block bg-customBlue text-white mt-6 py-2 rounded-xl hover:opacity-80"
               ><i class="fa-solid fa-envelope"></i>
               Contact Employer
               </a>
@@ -46,6 +46,52 @@
       </div>
     </div>
   </x-card>
+
+  {{-- Edit button --}}
+  <x-card class="mt-4 mx-auto inline-flex justify-center">
+    <a href="/listings/{{$listing->id}}/edit" class="p-3 hover:bg-customBlue hover:text-white rounded">
+      <i class="fa-solid fa-pencil"></i>
+      <span class="ml-2">Edit</span>
+    </a>
+
+    <button class="text-red-500 p-3 hover:bg-red-500 hover:text-white rounded"  onclick="openModal('modal-id')">
+        <i class="fa-solid fa-trash"></i>
+        <span class="ml-2">Delete</span>
+    </button>
+  </x-card>
+
+  {{-- Hidden modal to confirm delete --}}
+  <div id="modal-id" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" style="display:none;">
+    <div class="relative top-1/4 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      
+      <h2 class="text-xl mb-4">Are you sure you want to delete this listing?</h2>
+      
+      <div class="flex justify-end space-x-4">
+        <!-- Cancel Button -->
+        <button onclick="closeModal('modal-id')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded">Cancel</button>
+
+        <!-- Confirm Delete Button (this actually deletes the listing) -->
+        <form method="POST" action="/listings/{{$listing->id}}">
+          @csrf
+          @method('DELETE')
+          <button class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<script>
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+  }
+</script>
 
 @endsection
