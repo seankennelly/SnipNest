@@ -4,10 +4,13 @@
 ## Technologies
 - PHP
 - Laravel
+- MySQL
 - Tailwind
 - 
 - Composer
 - Bcrypt
+
+## Installation
 
 ## Functionality
 ### Search
