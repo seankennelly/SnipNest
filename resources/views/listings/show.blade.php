@@ -48,7 +48,7 @@
   </x-card>
 
   {{-- Edit button --}}
-  @auth
+  {{-- @auth
   <x-card class="mt-4 mx-auto inline-flex justify-center">
     <a href="/listings/{{$listing->id}}/edit" class="p-3 hover:bg-customBlue hover:text-white rounded">
       <i class="fa-solid fa-pencil"></i>
@@ -59,10 +59,10 @@
         <i class="fa-solid fa-trash"></i>
         <span class="ml-2">Delete</span>
     </button>
-  </x-card>
+  </x-card> --}}
 
   {{-- Hidden modal to confirm delete --}}
-  <div id="modal-id" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" style="display:none;">
+  {{-- <div id="modal-id" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" style="display:none;">
     <div class="relative top-1/4 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
       
       <h2 class="text-xl mb-4">Are you sure you want to delete this listing?</h2>
@@ -81,11 +81,11 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 </div>
 
-<script>
+{{-- <script>
   function openModal(modalId) {
     document.getElementById(modalId).style.display = 'block';
   }
@@ -93,7 +93,7 @@
   function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
   }
-</script>
-@endauth
+</script> --}}
+{{-- @endauth --}}
 
 @endsection

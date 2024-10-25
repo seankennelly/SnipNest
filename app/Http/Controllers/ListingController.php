@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ListingController extends Controller
 {
@@ -45,6 +48,8 @@ class ListingController extends Controller
       $formFields['logo'] = $request->file('logo')->store('logos', 'public');
     }
 
+    $formFields['user_id'] = Auth::id();
+
     Listing::create($formFields);
 
     return redirect('/')->with('message', 'Snippet added successfully');
@@ -58,6 +63,12 @@ class ListingController extends Controller
 
   // Update Listing Data
   public function update(Request $request, Listing $listing) {
+
+    // Make sure logged in user is owner of listings available to update
+    if($listing->user_id != Auth::id()) {
+      abort(403, 'Unauthorised Action');
+    }
+
     $formFields = $request->validate([
       'title' => 'required',
       'company' => 'required',
@@ -74,14 +85,31 @@ class ListingController extends Controller
 
     $listing->update($formFields);
 
-    // return back()->with('message', 'Snippet updated successfully');
-    return redirect()->route('listings.show', $listing->id)->with('message', 'Snippet updated');
+    return redirect('/listings/manage')->with('message', 'Snippet updated');
   }
 
   // Delete Listing
   public function destroy(Listing $listing) {
+
+    // Make sure logged in user is owner of listings available to delete
+    if ($listing->user_id != Auth::id()) {
+      abort(403, 'Unauthorised Action');
+    }
+
+    if ($listing->logo && Storage::disk('public')->exists($listing->logo)) {
+      Storage::disk('public')->delete($listing->logo);
+    }
+
     $listing->delete();
-    return redirect('/')->with('message', 'Snippet deleted');
+    return redirect('/listings/manage')->with('message', 'Snippet deleted');
+  }
+
+  // Manage Listings
+  public function manage() {
+    $user = Auth::user();
+    return view('listings.manage', [
+      'listings' => ($user instanceof User) ? $user->listings()->get() : collect()
+    ]);
   }
 
 // End of controller
