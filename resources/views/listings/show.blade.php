@@ -48,6 +48,7 @@
   </x-card>
 
   {{-- Edit button --}}
+  @auth
   <x-card class="mt-4 mx-auto inline-flex justify-center">
     <a href="/listings/{{$listing->id}}/edit" class="p-3 hover:bg-customBlue hover:text-white rounded">
       <i class="fa-solid fa-pencil"></i>
@@ -93,5 +94,6 @@
     document.getElementById(modalId).style.display = 'none';
   }
 </script>
+@endauth
 
 @endsection
