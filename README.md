@@ -18,9 +18,9 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
 ## Technologies
 - PHP
 - Laravel
+- Blade
 - MySQL
 - Tailwind
-- 
 - Composer
 - Bcrypt
 
