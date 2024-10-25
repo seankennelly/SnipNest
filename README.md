@@ -1,3 +1,17 @@
+# SnipNest
+A PHP/Laravel web app that acts as a user-submitted repository for code snippets, within a sharing and social environment. CRUD operations have two scopes:
+- Users
+  - Register user
+  - Log In
+  - Log Out
+- Snippets
+  - Post snippet
+  - View all snippets
+  - View individual snippet
+  - View logged-in user's listings
+  - Update logged-in user's listings
+  - Delete logged-in user's listings
+
 ## Working notes:
 - Remember to leave factory as an example to show in portfolio. Possibly even leave some factory-made examples in the final product
 
