@@ -53,16 +53,17 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
 - Edit Virtual Hosts File
   - Windows: `C:/xampp/apache/conf/extra/httpd-vhosts.conf`
     - Add the following:
-    - ```<VirtualHost *:80>
+    ```
+    <VirtualHost *:80>
       DocumentRoot "C:/xampp/htdocs"
       ServerName localhost
-      </VirtualHost>
+    </VirtualHost>
 
-      <VirtualHost *:80>
-        DocumentRoot "C:/xampp/htdocs/PROJECT_NAME/public"
-        ServerName PROJECT_NAME.test
-      </VirtualHost>
-      ```
+    <VirtualHost *:80>
+      DocumentRoot "C:/xampp/htdocs/PROJECT_NAME/public"
+      ServerName PROJECT_NAME.test
+    </VirtualHost>
+    ```
 
 
 ## Key Features
