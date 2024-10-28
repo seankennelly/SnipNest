@@ -33,7 +33,7 @@
                 },
             };
         </script>
-        <title>SnipNest | Home</title>
+        <title>SnipNest</title>
     </head>
     <body class="mb-48 bg-customBlack">
         <nav class="flex justify-between items-center mt-4 mb-4">

@@ -9,9 +9,9 @@
     @unless(count($listings) == 0)
       @foreach($listings as $listing)
         <!-- Item -->
-        <x-listing-card :listing="$listing" />
+        <x-listing-card :flexible="true" :listing="$listing" />
       @endforeach
-      @else
+    @else
       <p>No listings found</p>
     @endunless
 

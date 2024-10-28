@@ -35,8 +35,12 @@ The search bar will return results with matching tags, titles and descriptions.
 - Bcrypt hashes user passwords on registration
 
 ## Database Integrity
-- To ensure User-submitted data is accurate, consistent, and reliable, the `store()` function in `ListingController` enforces data constraints. All fields are required and some (email, website) must adhere to correct formatting.
+- To ensure User-submitted data is accurate, consistent, and reliable, the `store()` function in `ListingController` enforces data constraints. All fields are required and some must adhere to correct formatting.
 - Each form input field has `@error('input')` tags to inform users which fields are producing errors
 
 ## Testing
-To test the app, I created a factory and generated fresh fake data with Faker, using the `php artisan migrate:refresh --seed` command. This command also refreshed my database tables. 
+To test the app, I created a factory and generated fresh fake data with Faker, using the `php artisan migrate:refresh --seed` command. This command also refreshed my database tables.
+
+## Prospective Improvements
+- In a future iteration of this project users should be able to rate and comment on snippet postings, further enhancing the community aspect of the site.
+- Snippet postings show the name of the user who posted them. In a future iteration this should become a link to a profile page for that user listing all their posts.

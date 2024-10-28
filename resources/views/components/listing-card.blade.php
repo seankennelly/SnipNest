@@ -1,21 +1,21 @@
-@props(['listing'])
-<x-card>
+@props(['listing', 'flexible' => false])
+
+<x-card :flexible="$flexible">
   <a href="/listings/{{$listing->id}}" class="block">
-    <div class="flex">
+    <div class="{{ $flexible ? 'flex items-center' : '' }}">
       <img
-          class="hidden w-48 mr-6 md:block"
-          src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png') }}"
-          alt="{{ $listing->logo ? 'Logo for ' . $listing->company : 'No logo available' }}"
+          class="hidden w-48 mr-6 md:block rounded"
+          src="{{ $listing->screenshot ? asset('storage/' . $listing->screenshot) : asset('/images/no-image.png') }}"
+          alt="{{ $listing->screenshot ? 'Screenshot of code for ' . $listing->title : 'No screenshot available' }}"
       />
       <div>
-        <h3 class="text-2xl">
+        <h3 class="text-2xl mb-3">
           {{$listing->title}}
         </h3>
-        <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
         <x-listing-tags :tagsCsv="$listing->tags" text-size="small"/>
-        <div class="text-lg mt-4">
-          <i class="fa-solid fa-location-dot"></i>
-          {{$listing->location}}
+        <div class="mt-4">
+          <i class="fa-solid fa-circle-user"></i>
+          {{$listing->user->name}}
         </div>
       </div>
     </div>

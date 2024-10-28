@@ -19,10 +19,7 @@ class ListingFactory extends Factory
         return [
           'title' => $this->faker->sentence(),
           'tags' => 'JavaScript, API',
-          'company' => $this->faker->company(),
-          'location' => $this->faker->city(),
-          'email' => $this->faker->companyEmail(),
-          'website' => $this->faker->url(),
+          'explanation' => $this->faker->sentence(),
           'description' => $this->faker->paragraph(5),
         ];
     }

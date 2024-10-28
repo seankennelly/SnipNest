@@ -22,10 +22,14 @@ class ListingController extends Controller
   // Show single listing
   public function show(Listing $listing)
   {
+    // Eager load the user relationship
+    $listing->load('user');
+
     return view('listings.show', [
       'listing' => $listing
     ]);
   }
+
 
   // Show Create Form
   public function create() {
@@ -36,16 +40,13 @@ class ListingController extends Controller
   public function store(Request $request) {
     $formFields = $request->validate([
       'title' => 'required',
-      'company' => ['required', Rule::unique('listings', 'company')],
-      'location' => 'required',
-      'email' => ['required', 'email'],
-      'website' => 'required',
       'tags' => 'required',
-      'description' => 'required'
+      'description' => 'required',
+      'explanation' => 'required'
     ]);
 
-    if($request->hasFile('logo')) {
-      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    if($request->hasFile('screenshot')) {
+      $formFields['screenshot'] = $request->file('screenshot')->store('screenshots', 'public');
     }
 
     $formFields['user_id'] = Auth::id();
@@ -71,16 +72,13 @@ class ListingController extends Controller
 
     $formFields = $request->validate([
       'title' => 'required',
-      'company' => 'required',
-      'location' => 'required',
-      'email' => ['required', 'email'],
-      'website' => 'required',
       'tags' => 'required',
-      'description' => 'required'
+      'description' => 'required',
+      'explanation' => 'required'
     ]);
 
-    if($request->hasFile('logo')) {
-      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    if($request->hasFile('screenshot')) {
+      $formFields['screenshot'] = $request->file('screenshot')->store('screenshots', 'public');
     }
 
     $listing->update($formFields);
@@ -96,8 +94,8 @@ class ListingController extends Controller
       abort(403, 'Unauthorised Action');
     }
 
-    if ($listing->logo && Storage::disk('public')->exists($listing->logo)) {
-      Storage::disk('public')->delete($listing->logo);
+    if ($listing->screenshot && Storage::disk('public')->exists($listing->screenshot)) {
+      Storage::disk('public')->delete($listing->screenshot);
     }
 
     $listing->delete();
