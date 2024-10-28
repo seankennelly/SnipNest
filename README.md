@@ -60,10 +60,28 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
     </VirtualHost>
 
     <VirtualHost *:80>
-      DocumentRoot "C:/xampp/htdocs/PROJECT_NAME/public"
-      ServerName PROJECT_NAME.test
+      DocumentRoot "C:/xampp/htdocs/code_snippets/public"
+      ServerName code_snippets.test
     </VirtualHost>
     ```
+  - Mac: `/opt/lampp/etc/extra/httpd-vhosts.conf`
+    - Add the following:
+    ```
+    <VirtualHost *:80>
+      DocumentRoot /opt/lampp/htdocs
+      ServerName localhost
+      ServerAlias www.localhost
+    </VirtualHost>
+
+
+    <VirtualHost *:80>
+      DocumentRoot /opt/lampp/htdocs/code_snippets/public
+      ServerName code_snippets.test
+      ServerAlias www.code_snippets.test
+    </VirtualHost>
+    ```
+    <mark>Make sure that the project name in the above code (here given as `code_snippets`) matches the directory name you have used.</mark>
+- Restart Apache with the XAMPP panel
 
 
 ## Key Features
