@@ -12,7 +12,7 @@
         <x-listing-card :flexible="true" :listing="$listing" />
       @endforeach
     @else
-      <p>No listings found</p>
+      <p class="text-white">No listings found</p>
     @endunless
 
   </div>

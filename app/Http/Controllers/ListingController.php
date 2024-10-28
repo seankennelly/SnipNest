@@ -43,7 +43,7 @@ class ListingController extends Controller
       'title' => 'required|string|max:255',
       'tags' => 'required|string|max:255',
       'description' => 'required|string|min:10|max:5000', 
-      'explanation' => 'string|min:10|max:5000'
+      'explanation' => 'nullable|string|min:10|max:5000'
     ]);
 
     // Validate the uploaded file (screenshot) if present
@@ -84,7 +84,7 @@ class ListingController extends Controller
       'title' => 'required|string|max:255',
       'tags' => 'required|string|max:255',
       'description' => 'required|string|min:10|max:5000',
-      'explanation' => 'string|min:10|max:5000'
+      'explanation' => 'nullable|string|min:10|max:5000'
     ]);
 
     if ($request->hasFile('screenshot')) {

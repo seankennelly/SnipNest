@@ -18,7 +18,7 @@ return new class extends Migration
       $table->string('screenshot')->nullable();
       $table->string('tags');
       $table->longText('description');
-      $table->longText('explantion');
+      $table->longText('explanation')->nullable();
       $table->timestamps();
     });
   }
