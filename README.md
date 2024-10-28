@@ -41,7 +41,29 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
 - Composer
 
 ## Installation
-???
+- This project was developed on XAMPP. To download and run it:
+  - Make sure you have XAMPP installed
+  - Make sure you have Composer installed
+
+- To view the project locally, you need to set up a local Virtual Host. 
+  - Find the hosts file (Windows - `C:/Windows/System32/drivers/etc/hosts`. Mac - `/etc/hosts`)
+  - Add these lines: 
+    - `127.0.0.1	localhost`
+    - `127.0.0.1	PROJECT_NAME.test`
+- Edit Virtual Hosts File
+  - Windows: `C:/xampp/apache/conf/extra/httpd-vhosts.conf`
+    - Add the following:
+    - ```<VirtualHost *:80>
+      DocumentRoot "C:/xampp/htdocs"
+      ServerName localhost
+      </VirtualHost>
+
+      <VirtualHost *:80>
+        DocumentRoot "C:/xampp/htdocs/PROJECT_NAME/public"
+        ServerName PROJECT_NAME.test
+      </VirtualHost>
+      ```
+
 
 ## Key Features
 ### Search
