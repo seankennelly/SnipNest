@@ -102,6 +102,7 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
 -   If the above does not work, make sure virtual hosts file is enabled in `httpd.conf`.
     -   **Windows:** `C:/xampp/apache/conf/httpd.conf`
     -   **Mac:** `/opt/lampp/etc/httpd.conf`
+
 -   Remove the `#` from the beginning of this line:
     ```
     #Include etc/extra/httpd-vhosts.conf
