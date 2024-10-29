@@ -108,6 +108,8 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
     #Include etc/extra/httpd-vhosts.conf
     ```
 -   Save the file and restart Apache again
+-   You will need to create a .env file that plugs into Laravel (Find in Laravel docs)
+-   You will need to install vendors with Composer
 
 ## Key Features
 
