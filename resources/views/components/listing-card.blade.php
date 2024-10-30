@@ -1,7 +1,7 @@
 @props(['listing', 'flexible' => false])
 
 <x-card :flexible="$flexible">
-  <a href="/listings/{{$listing->id}}" class="block">
+  <a href="{{ url('/listings/' . $listing->id) }}" class="block">
     <div class="{{ $flexible ? 'flex items-center' : '' }}">
       <img
           class="hidden w-48 mr-6 md:block rounded"

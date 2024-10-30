@@ -37,7 +37,7 @@
     </head>
     <body class="mb-48 bg-customBlack">
         <nav class="flex justify-between items-center mt-4 mb-4">
-            <a href="/">
+            <a href="{{ url('/') }}">
                 <img class="w-24 ms-4" src="{{asset('images/logo_circle.png')}}" alt="The SnipNest logo" class="logo"/>
             </a>
             <ul class="flex space-x-6 mr-6 text-lg text-white">
@@ -48,13 +48,13 @@
                   </span>
                 </li>
                 <li>
-                  <a href="/listings/manage" class="hover:text-customBlue">
+                  <a href="{{ url ('/listings/manage') }}" class="hover:text-customBlue">
                     <i class="fa-solid fa-rectangle-list"></i>
                       Manage Snippets
                   </a>
                 </li>
                 <li>
-                  <form method="POST" action="/logout" class="inline hover:text-customBlue">
+                  <form method="POST" action="{{ url ('/logout') }}" class="inline hover:text-customBlue">
                     @csrf
                     <button type="submit">
                       <i class="fa-solid fa-door-open"></i>Logout
@@ -63,13 +63,13 @@
                 </li>
               @else
                 <li>
-                  <a href="/register" class="hover:text-customBlue">
+                  <a href="{{ url ('/register') }}" class="hover:text-customBlue">
                       <i class="fa-solid fa-user-plus"></i>
                       Register
                   </a>
                 </li>
                 <li>
-                  <a href="/login" class="hover:text-customBlue">
+                  <a href="{{ url ('/login') }}" class="hover:text-customBlue">
                     <i class="fa-solid fa-arrow-right-to-bracket"></i>
                       Login
                   </a>
@@ -88,13 +88,13 @@
             <p class="ml-2">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Seán Kennelly. All Rights Reserved</p>
             @auth
               <a
-                href="/listings/create"
+                href="{{ url ('/listings/create') }}"
                 class="absolute right-10 bg-black text-white py-2 px-5 rounded">
                 Post Snippet
               </a>
             @else
               <a
-                href="/login"
+                href="{{ url ('/login') }}"
                 class="absolute right-10 bg-black text-white py-2 px-5 rounded">
                 Log In
               </a>

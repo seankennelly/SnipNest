@@ -15,13 +15,13 @@
     <div>
       @auth
         <a
-          href="/listings/create"
+          href="{{ url ('/listings/create') }}"
           class="inline-block border-2 border-black bg-black text-white py-2 px-4 rounded-xl uppercase mt-2 hover:bg-white hover:text-black hover:border-customBlue">
           Post Your Latest Snippet
         </a>
       @else
         <a
-          href="/register"
+          href="{{ url ('/register') }}"
           class="inline-block border-2 border-black bg-black text-white py-2 px-4 rounded-xl uppercase mt-2 hover:bg-white hover:text-black">
           Sign Up to Post Your Snippet
         </a>

@@ -16,14 +16,14 @@
             <tr class="border-gray-300">
                 <td
                   class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                  <a href="/listings/{{$listing->id}}">
+                  <a href="{{ url('/listings/' . $listing->id) }}">
                     {{$listing->title}}
                   </a>
                 </td>
                 <td
                   class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                   <a
-                    href="/listings/{{$listing->id}}/edit"
+                    href="{{ url('/listings/' . $listing->id . '/edit') }}"
                     class="text-blue-400 px-6 py-2 rounded-xl">
                     <i class="fa-solid fa-pen-to-square"></i>
                     Edit

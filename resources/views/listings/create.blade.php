@@ -9,7 +9,7 @@
     <p class="mb-4">Share with the community </p>
   </header>
 
-  <form method="POST" action="/listings" enctype="multipart/form-data">
+  <form method="POST" action="{{ url ('/listings') }}" enctype="multipart/form-data">
     @csrf
     
     <div class="mb-6">
@@ -100,7 +100,7 @@
           Post
       </button>
 
-      <a href="/" class="text-black ml-4"> Back </a>
+      <a href="{{ url ('/') }}" class="text-black ml-4"> Back </a>
     </div>
   </form>
 </x-card>

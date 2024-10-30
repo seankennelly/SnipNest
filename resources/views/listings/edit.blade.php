@@ -9,7 +9,7 @@
     <p class="mb-4">Editing "<span class=italic>{{$listing->title}}</span>"</p>
   </header>
 
-  <form method="POST" action="/listings/{{$listing->id}}" enctype="multipart/form-data">
+  <form method="POST" action="{{ url('/listings/' . $listing->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <div class="mb-6">
@@ -109,7 +109,7 @@
           Confirm
       </button>
 
-      <a href="/listings/{{$listing->id}}" class="text-black ml-4"> Back </a>
+      <a href="{{ url('/listings/' . $listing->id) }}" class="text-black ml-4"> Back </a>
     </div>
   </form>
 </x-card>

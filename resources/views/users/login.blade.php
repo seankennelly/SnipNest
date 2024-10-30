@@ -9,7 +9,7 @@
           </h2>
       </header>
 
-      <form method="POST" action="/users/authenticate">
+      <form method="POST" action="{{ url ('/users/authenticate') }}">
         @csrf
           <div class="mb-6">
               <label for="email" class="inline-block text-lg mb-2"
@@ -56,7 +56,7 @@
           <div class="mt-8">
               <p>
                   Don't have an account?
-                  <a href="/register" class="text-customBlue"
+                  <a href="{{ url ('/register') }}" class="text-customBlue"
                       >Register</a
                   >
               </p>
