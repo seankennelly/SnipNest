@@ -77,7 +77,7 @@
               @endauth
             </ul>
         </nav>
-        <main class="flex-grow sm:pb-14">
+        <main class="flex-grow pb-10">
 
           {{-- VIEW OUTPUT --}}
           @yield('content')
