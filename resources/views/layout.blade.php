@@ -18,8 +18,10 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
+        @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
+        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+        {{-- <script>
             tailwind.config = {
                 theme: {
                     extend: {
@@ -32,7 +34,7 @@
                     }, 
                 },
             };
-        </script>
+        </script> --}}
         <title>SnipNest</title>
     </head>
     <body class="min-h-screen flex flex-col bg-customBlack">

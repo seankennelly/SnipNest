@@ -109,7 +109,7 @@ A PHP/Laravel web app that acts as a user-submitted repository for code snippets
     ```
 -   Save the file and restart Apache again
 -   You will need to create a .env file that plugs into Laravel (Find in Laravel docs)
--   You will need to install vendors with Composer
+-   You will need to install vendors with Composer and install node_modules with npm
 
 ## Key Features
 
