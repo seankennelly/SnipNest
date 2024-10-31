@@ -24,11 +24,13 @@
         <div class="text-lg space-y-6">
           {{$listing->description}}
         </div>
-        <img
-          class="inline max-w-lg my-6"
-          src="{{ $listing->screenshot ? asset('storage/' . $listing->screenshot) : asset('/images/no-image.png') }}"
-          alt="{{ $listing->screenshot ? 'Screenshot of ' . $listing->title .' code' : 'No screenshot available' }}"
-        />
+        <a href="{{ $listing->screenshot ? asset('storage/' . $listing->screenshot) : asset('/images/no-image.png') }}">
+          <img
+            class="inline max-w-full sm:max-w-lg my-6"
+            src="{{ $listing->screenshot ? asset('storage/' . $listing->screenshot) : asset('/images/no-image.png') }}"
+            alt="{{ $listing->screenshot ? 'Screenshot of ' . $listing->title .' code' : 'No screenshot available' }}"
+          />
+        </a>
         <div class="mb-4">{{$listing->explanation}}</div>
       </div>
     </div>
