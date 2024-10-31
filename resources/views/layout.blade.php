@@ -35,7 +35,7 @@
         </script>
         <title>SnipNest</title>
     </head>
-    <body class="mb-48 bg-customBlack">
+    <body class="min-h-screen flex flex-col bg-customBlack">
         <nav class="flex justify-between items-center mt-4 mb-4">
             <a href="{{ url('/') }}">
                 <img class="w-24 ms-4" src="{{asset('images/logo_circle.png')}}" alt="The SnipNest logo" class="logo"/>
@@ -77,29 +77,54 @@
               @endauth
             </ul>
         </nav>
-        <main>
+        <main class="flex-grow sm:pb-14">
 
           {{-- VIEW OUTPUT --}}
           @yield('content')
 
         </main>
         <footer
-            class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-customBlue text-white h-14 mt-24 opacity-90 md:justify-center">
-            <p class="ml-2">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Seán Kennelly. All Rights Reserved</p>
-            @auth
-              <a
-                href="{{ url ('/listings/create') }}"
-                class="absolute right-10 bg-black text-white py-2 px-5 rounded">
-                Post Snippet
-              </a>
-            @else
-              <a
-                href="{{ url ('/login') }}"
-                class="absolute right-10 bg-black text-white py-2 px-5 rounded">
-                Log In
-              </a>
-            @endauth
+          class="w-full flex flex-col sm:flex-row items-center justify-center font-bold bg-customBlue text-white text-sm h-24 sm:h-14 opacity-90 p-4 sm:fixed sm:bottom-0">
+          @auth
+            <a
+              href="{{ url ('/listings/create') }}"
+              class="sm:absolute sm:right-10 mb-2 sm:mb-0 bg-black text-white py-2 px-5 rounded">
+              Post Snippet
+            </a>
+          @else
+            <a
+              href="{{ url ('/login') }}"
+              class="sm:absolute sm:right-10 mb-2 sm:mb-0 bg-black text-white py-2 px-5 rounded">
+              Log In
+            </a>
+          @endauth
+          <p class="ml-2 text-center sm:order-2">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Seán Kennelly. All Rights Reserved</p>
         </footer>
         <x-flash-message />
+
+        {{-- To stop bottom of footer disappearing on mobile --}}
+        <script>
+          function adjustFooterPosition() {
+          const footer = document.querySelector('footer');
+          const windowHeight = window.innerHeight;
+          const footerHeight = footer.offsetHeight;
+          const bodyHeight = document.body.offsetHeight;
+
+          // If content height is less than the viewport, keep footer fixed to the bottom
+          if (bodyHeight < windowHeight) {
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+          } else {
+            footer.style.position = 'relative';
+          }
+          }
+
+          window.addEventListener('resize', adjustFooterPosition);
+          window.addEventListener('scroll', adjustFooterPosition);
+
+          // Initial call to set the footer correctly
+          adjustFooterPosition();
+        </script>
+
     </body>
 </html>
