@@ -9,7 +9,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{ url ('images/favicons/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ url ('images/favicons/favicon-16x16.png') }}">
         {{-- Alpine.js --}}
-        <script src="//unpkg.com/alpinejs" defer></script>
+        <script src="https://unpkg.com/alpinejs" defer></script>
         {{-- Stylesheets --}}
         <link
             rel="stylesheet"
@@ -20,21 +20,6 @@
         />
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
-        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-        {{-- <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            laravel: "#ef3b2d",
-                            customBlue: '#39AAD8',
-                            customBlueDark: '#3C9DC3',
-                            customBlack: '#22292E',
-                        },
-                    }, 
-                },
-            };
-        </script> --}}
         <title>SnipNest</title>
     </head>
     <body class="min-h-screen flex flex-col bg-customBlack">
